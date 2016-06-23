@@ -35,5 +35,5 @@ run Options{..} = do
         setBeforeMainLoop (hPutStrLn stderr ("listening on " ++ show port ++ "...")) $
         defaultSettings
   withSystemTempDirectory "serve-ghcjs" $ \ buildDir -> do
-    app <- mkDevelopmentApp (BuildConfig mainIs Nothing sourceDirs "." Cabal buildDir)
+    app <- mkDevelopmentApp (BuildConfig mainIs Nothing sourceDirs "." Stack buildDir)
     runSettings settings app
